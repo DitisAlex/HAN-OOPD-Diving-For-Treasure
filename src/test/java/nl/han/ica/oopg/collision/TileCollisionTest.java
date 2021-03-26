@@ -6,15 +6,15 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.MockTile;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Before;
+import org.junit.Test;
 import processing.core.PGraphics;
 import processing.core.PImage;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 public class TileCollisionTest {
@@ -35,7 +35,7 @@ public class TileCollisionTest {
     };
     private int testTileSize = 50;
 
-    @BeforeEach
+    @Before
     public void setup() {
         tileMap = new TileMap(testTileSize, testTileTypes, testMap);
         fakeGameObject = new FakeGameObject(50, 50, 50, 50);

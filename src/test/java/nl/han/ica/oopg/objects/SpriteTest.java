@@ -1,9 +1,9 @@
 package nl.han.ica.oopg.objects;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import processing.core.PImage;
 
@@ -12,7 +12,7 @@ public class SpriteTest {
 	PImage img;
 	Sprite sprite;
 	
-	@BeforeEach
+	@Before
 	public void setup()
 	{
 		img = new PImage(20, 20);

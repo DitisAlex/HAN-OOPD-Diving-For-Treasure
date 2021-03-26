@@ -1,18 +1,18 @@
 package nl.han.ica.oopg.tile;
 
 import nl.han.ica.oopg.objects.Sprite;
+import org.junit.Before;
+import org.junit.Test;
 import processing.core.PImage;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
 
 public class TileTest {
 
     Tile tile;
     Sprite testSprite = new Sprite(new PImage(50, 50));
 
-    @BeforeEach
+    @Before
     public void setup() {
         tile = new Tile(testSprite);
     }

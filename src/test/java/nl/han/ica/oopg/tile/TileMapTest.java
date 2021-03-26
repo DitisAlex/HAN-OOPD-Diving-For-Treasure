@@ -6,13 +6,14 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsCreatorMock;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsMock;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import processing.core.PImage;
 import processing.core.PVector;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class TileMapTest {
 
@@ -34,7 +35,7 @@ public class TileMapTest {
 
     int testTileSize = 50;
 
-    @BeforeEach
+    @Before
     public void setup() {
         tileMap = new TileMap(testTileSize, testTileTypes, testMap);
     }
@@ -90,11 +91,11 @@ public class TileMapTest {
         assertArrayEquals(tileMap.getTileMap(), testMap);
     }
 
-//    @Test(expected = ArrayIndexOutOfBoundsException.class)
-//    public void getTileOnPositionWithXAndYOutOfBounds() {
-//        tileMap.setTileSize(10);
-//        tileMap.getTileOnPosition(60, 60);
-//    }
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void getTileOnPositionWithXAndYOutOfBounds() {
+        tileMap.setTileSize(10);
+        tileMap.getTileOnPosition(60, 60);
+    }
 
     @Test
     public void getEmptyTileOnPositionWhereRequestedTileIsNegative() {
@@ -114,11 +115,11 @@ public class TileMapTest {
         assertEquals(tileMap.getTileOnPosition(10, 40).getClass(), testTileTypes[0].getClassType());
     }
 
-//    @Test(expected = ArrayIndexOutOfBoundsException.class)
-//    public void getTileOnIndexExceptionWithXAndYOutOfBounds() {
-//        tileMap.setTileSize(10);
-//        tileMap.getTileOnIndex(6, 6);
-//    }
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void getTileOnIndexExceptionWithXAndYOutOfBounds() {
+        tileMap.setTileSize(10);
+        tileMap.getTileOnIndex(6, 6);
+    }
 
     @Test
     public void getEmptyTileOnIndexWhereRequestedTileIsNegative() {

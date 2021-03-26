@@ -1,19 +1,21 @@
 package nl.han.ica.oopg.logger;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class loggerTest {
     static Logger logger;
 
-    @BeforeAll
+    @BeforeClass
     public static void setupClass()
     {
         logger = LogFactory.getLogger();

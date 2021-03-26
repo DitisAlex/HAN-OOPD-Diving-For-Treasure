@@ -3,25 +3,27 @@ package nl.han.ica.oopg.persistence;
 import nl.han.ica.oopg.logger.FileLogHandler;
 import nl.han.ica.oopg.logger.LogFactory;
 import nl.han.ica.oopg.logger.Logger;
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.io.File;
 
+import static org.junit.Assert.*;
 
 public class FilePersistenceTest {
     FilePersistence filePersistence;
     String filename;
 
 
-    @BeforeAll
+    @BeforeClass
     public static void setupClass(){
         Logger logger = LogFactory.getLogger();
         logger.addLogHandler(new FileLogHandler());
     }
 
-    @BeforeEach
+    @Before
     public void setup()
     {
         filename = "test/java/nl/han/ica/oopg/persistence/Test.txt";
@@ -57,13 +59,13 @@ public class FilePersistenceTest {
         assertArrayEquals(saveData, filePersistence.loadDataStringArray(separator));
     }
 
-//    @Test(expected = IllegalArgumentException.class)
-//    public void saveAndLoadDataArrayWithSeparatorInTheFirstArrayValue(){
-//        String[] saveData = new String[]{"Hello", "world"};
-//        String separator = "w";
-//        filePersistence.saveData(saveData, separator);
-//        filePersistence.loadDataStringArray(separator);
-//    }
+    @Test(expected = IllegalArgumentException.class)
+    public void saveAndLoadDataArrayWithSeparatorInTheFirstArrayValue(){
+        String[] saveData = new String[]{"Hello", "world"};
+        String separator = "w";
+        filePersistence.saveData(saveData, separator);
+        filePersistence.loadDataStringArray(separator);
+    }
 
     @Test
     public void deleteAnExistingFile(){
@@ -84,7 +86,7 @@ public class FilePersistenceTest {
         assertFalse(file.exists());
     }
 
-    @AfterEach
+    @After
     public void after()
     {
         filePersistence.deleteData();

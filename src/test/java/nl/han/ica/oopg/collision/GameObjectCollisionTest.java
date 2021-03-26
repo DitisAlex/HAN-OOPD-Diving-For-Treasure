@@ -2,13 +2,15 @@ package nl.han.ica.oopg.collision;
 
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.objects.GameObject;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import processing.core.PGraphics;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class GameObjectCollisionTest {
 
@@ -16,7 +18,7 @@ public class GameObjectCollisionTest {
     public Muur muur;
     public GameEngine gameEngine = new GameEngineMock();
 
-    @BeforeEach
+    @Before
     public void setup() {
 
     }

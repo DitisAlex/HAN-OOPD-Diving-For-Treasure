@@ -1,15 +1,15 @@
 package nl.han.ica.oopg.alarm;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 public class AlarmTest {
 
 	private Alarm alarm;
 	
-	@BeforeEach
+	@Before
 	public void setup()
 	{
 		this.alarm = new Alarm("TestAlarm", 0);

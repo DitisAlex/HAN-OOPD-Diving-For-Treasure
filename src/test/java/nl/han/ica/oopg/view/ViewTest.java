@@ -5,20 +5,20 @@ import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsCreatorMock;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsMock;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import processing.core.PGraphics;
 import processing.core.PImage;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.*;
+
 public class ViewTest {
     private View view;
 
-    @BeforeEach
+    @Before
     public void setup()
     {
         view = new View(200,200);

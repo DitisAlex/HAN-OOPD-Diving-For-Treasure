@@ -1,18 +1,18 @@
 package nl.han.ica.oopg.objects;
 
+import static org.junit.Assert.*;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsCreatorMock;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsMock;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TextObjectTest {
 
 	private PGraphicsMock g;
 	private TextObject obj;
 	
-	@BeforeEach
+	@Before
 	public void setup() {
 		
 		PGraphicsCreatorMock pGraphicsCreator = new PGraphicsCreatorMock();

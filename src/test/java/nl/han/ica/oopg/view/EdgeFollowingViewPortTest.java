@@ -4,19 +4,19 @@ import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsCreatorMock;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsMock;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Before;
+import org.junit.Test;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import processing.core.PGraphics;
 import processing.core.PImage;
+import static org.junit.Assert.assertEquals;
 
 public class EdgeFollowingViewPortTest {
 	
     EdgeFollowingViewport edgeFollowingViewPort;
     FakeGameObject fakeGameObject;
 
-    @BeforeEach
+    @Before
     public void setup()
     {
         fakeGameObject = new FakeGameObject(0, 0, 10, 10);

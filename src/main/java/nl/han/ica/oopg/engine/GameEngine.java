@@ -310,6 +310,7 @@ public abstract class GameEngine extends PApplet {
      * Updates every dashboard inside the GameEngine.
      */
     private void updateDashboards() {
+
         for (int i = 0; i < dashboards.size(); i++) {
             dashboards.get(i).update();
         }

@@ -2,19 +2,18 @@ package nl.han.ica.oopg.objects;
 
 import nl.han.ica.oopg.engine.GameEngine;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import processing.core.PGraphics;
+import static org.junit.Assert.assertEquals;
 
 public class GameObjectTest {
     
 	private FakeGameObject gameObject;
     private GameEngine gameEngine;
 	
-	@BeforeEach
+	@Before
     public void setup()
     {
 		this.gameObject = new FakeGameObject(0, 0, 20, 20);
@@ -336,15 +335,15 @@ public class GameObjectTest {
         }
     }
 
-//    @Test(expected = IllegalArgumentException.class)
-//    public void testSetFrictionOf2AndThrowException() throws IllegalArgumentException{
-//        gameObject.setFriction(2);
-//    }
-//
-//    @Test(expected = IllegalArgumentException.class)
-//    public void testSetFrictionNegativeAndThrowException() throws IllegalArgumentException{
-//        gameObject.setFriction(-1);
-//    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetFrictionOf2AndThrowException() throws IllegalArgumentException{
+        gameObject.setFriction(2);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetFrictionNegativeAndThrowException() throws IllegalArgumentException{
+        gameObject.setFriction(-1);
+    }
 
     @Test
     public void testUnsetDirection()

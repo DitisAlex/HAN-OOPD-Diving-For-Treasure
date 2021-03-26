@@ -2,19 +2,18 @@ package nl.han.ica.oopg.view;
 
 
 import nl.han.ica.oopg.objects.GameObject;
+import org.junit.Before;
+import org.junit.Test;
 import processing.core.PGraphics;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
 
 public class FollowingViewPortTest {
 	
     FollowingViewport followingViewPort;
     FakeGameObject fakeGameObject;
 
-    @BeforeEach
+    @Before
     public void setup()
     {
         fakeGameObject = new FakeGameObject(0, 0, 0, 0);

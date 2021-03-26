@@ -8,14 +8,14 @@ import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.userinput.IKeyInput;
 import nl.han.ica.oopg.userinput.IMouseInput;
 import nl.han.ica.oopg.view.View;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import processing.core.PGraphics;
 import processing.event.MouseEvent;
 
 import java.util.Vector;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class GameEngineTest {
 
@@ -28,7 +28,7 @@ public class GameEngineTest {
     Bar bar;
     Bar bar1;
 
-    @BeforeEach
+    @Before
     public void setup()
     {
     	gameEngine = new FakeGameEngine();
@@ -87,11 +87,11 @@ public class GameEngineTest {
         assertNotSame(foo1, foo.elementAt(0));
     }
 
-//    @Test(expected = GameEngineRuntimeException.class)
-//    public void testAddingSameObjectMultipleTimesThrowsException() {
-//    	gameEngine.addGameObject(foo);
-//    	gameEngine.addGameObject(foo);
-//    }
+    @Test(expected = GameEngineRuntimeException.class)
+    public void testAddingSameObjectMultipleTimesThrowsException() {
+    	gameEngine.addGameObject(foo);
+    	gameEngine.addGameObject(foo);
+    }
     
     @Test
     public void testDeletingGameOneObjectFromItems() throws Exception {
@@ -159,11 +159,11 @@ public class GameEngineTest {
         assertEquals(20, gameEngine.getGameSpeed());
     }
 
-//    @Test (expected=IllegalArgumentException.class)
-//    public void testIfNegativelyEnteredGamespeedGivesException() throws Exception {
-//
-//    	gameEngine.setGameSpeed(-20);
-//    }
+    @Test (expected=IllegalArgumentException.class)
+    public void testIfNegativelyEnteredGamespeedGivesException() throws Exception {
+
+    	gameEngine.setGameSpeed(-20);
+    }
 
     @Test
     public void testPauseGameReallyPausesThread()

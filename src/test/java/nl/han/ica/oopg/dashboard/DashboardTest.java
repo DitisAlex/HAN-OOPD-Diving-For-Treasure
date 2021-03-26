@@ -1,6 +1,6 @@
 package nl.han.ica.oopg.dashboard;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
@@ -9,8 +9,8 @@ import nl.han.ica.oopg.pgraphicsstub.PGraphicsCreatorMock;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsGameObject;
 import nl.han.ica.oopg.pgraphicsstub.PGraphicsMock;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import processing.core.PGraphics;
 import processing.core.PImage;
@@ -22,7 +22,7 @@ public class DashboardTest {
 
     private Dashboard dashboard;
 
-    @BeforeEach
+    @Before
     public void setup() {
         dashboard = new Dashboard(0, 0, 500, 100);
         dashboard.setPGraphicsCreator(new PGraphicsCreatorMock());
