@@ -14,7 +14,7 @@ public class DivingForTreasure extends GameEngine {
     //Static Variables
     public static String MEDIA_URL = "src/main/java/project/DivingForTreasure/media/images/";
     public static String SOUND_URL = "src/main/java/project/DivingForTreasure/media/sounds/";
-    Screen screen = new PlayScreen(this);
+    private Screen screen = new PlayScreen(this);
 
     /**
      * Main Method
