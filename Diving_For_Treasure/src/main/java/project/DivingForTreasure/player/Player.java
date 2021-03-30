@@ -14,6 +14,10 @@ import project.DivingForTreasure.supportingObject.Clock;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Alex Cheng
+ * @author Laurens van Brecht
+ */
 public class Player extends SpriteObject implements ICollidableWithGameObjects {
     private DivingForTreasure world;
     private TreasureBag treasureBag = new TreasureBag();
@@ -23,6 +27,10 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
     private int score = 0;
     private int oxygen = 100;
 
+    /**
+     * Constructor
+     * @param world DivingForTreasure
+     */
     public Player(DivingForTreasure world) {
         super(new Sprite(DivingForTreasure.MEDIA_URL.concat("player.png")));
         this.world = world;
@@ -30,6 +38,12 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
     }
 
     //Functions
+
+    /**
+     * Checks if player is out of lives
+     * if so, then deletes stats & players
+     * and switches to end screen
+     */
     private void gameOver() {
         if (lives <= 0) {
             lives = 0;
@@ -40,17 +54,26 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
         }
     }
 
+    /**
+     * Respawns the player and resets their oxygen
+     */
     private void respawn() {
         resetOxygen();
         setY(0);
         setX(0);
     }
 
+    /**
+     * Increases score by 1
+     */
     private void incrementScore() {
         final int scoreGranted = 1;
         score += scoreGranted;
     }
 
+    /**
+     * Increases oxygen by 15
+     */
     private void incrementOxygen() {
         final int oxygenGranted = 15;
         final int maxOxygen = 100;
@@ -58,16 +81,25 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
         if (oxygen > maxOxygen) oxygen = maxOxygen;
     }
 
+    /**
+     * Decreases score by score divided by 12
+     */
     private void decrementScore() {
         final int scoreDecrement = score%12;
         score -= scoreDecrement;
     }
 
+    /**
+     * Decreases oxygen by 1
+     */
     private void decrementOxygen() {
         final int decrementOxygen = 1;
         oxygen -= decrementOxygen;
     }
 
+    /**
+     * Clock to keep track when oxygen should deplete
+     */
     private void depleteOxygen() {
         if (oxygenClock.clockPassed()) {
             decrementOxygen();
@@ -76,11 +108,18 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
         }
     }
 
+    /**
+     * Resets oxygen by setting it back to full
+     */
     private void resetOxygen() {
         final int fullOxygen = 100;
         oxygen = fullOxygen;
     }
 
+    /**
+     * Checks when oxygen is fully empty
+     * if so, respawns player and decrease life
+     */
     private void checkOxygenLevel() {
         if (oxygen <= 0) {
             decrementLives();
@@ -88,12 +127,17 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
         }
     }
 
+    /**
+     * Decreases lives by 1
+     */
     private void decrementLives() {
         lives -=1;
     }
 
-    //TODO: .getHeight() and .getWidth() set don't work.
-    private void preventOutOfBounds() {
+    /**
+     * Prevents the player from getting outside the world
+     */
+    private void preventOutOfBounds() { //TODO: .getHeight() and .getWidth() set don't work.
         final int maxWidth = world.getWidth();
         final int maxHeight = world.getHeight();
         if (this.getX() > maxWidth) {
@@ -107,6 +151,14 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
         }
     }
 
+    /**
+     * Sets the following stats of the player in the screen:
+     * - Lives
+     * - Oxygen
+     * - Score
+     * @param fontsize int
+     * @param x int
+     */
     private void displayStats(int fontsize, int x) {
         textObjects.clear();
         textObjects.add(new TextObject("Lives: " + lives, fontsize));
@@ -121,17 +173,25 @@ public class Player extends SpriteObject implements ICollidableWithGameObjects {
         i = 0;
     }
 
+    /**
+     * Clear the player stats
+     */
     private void deletePlayerStats () {
         for (TextObject to: textObjects) {
             world.deleteGameObject(to);
         }
     }
 
+    /**
+     * [Debug]
+     * Print player stats
+     */
     private void printPlayerStats() {
         System.out.println("Player Lives: " + lives);
         System.out.println("Player Oxygen: " + oxygen);
         System.out.println("Player Score: " + score);
     }
+
     //Abstract Functions
     //Override Functions
     @Override

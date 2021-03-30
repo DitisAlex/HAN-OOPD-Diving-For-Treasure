@@ -9,11 +9,20 @@ import project.DivingForTreasure.player.Player;
 
 import java.util.List;
 
+/**
+ * @author Alex Cheng
+ * @author Laurens van Brecht
+ */
 public abstract class InteractableObject extends SpriteObject implements ICollidableWithGameObjects {
     protected DivingForTreasure world;
     protected int speed;
     private final int START_SPEED = 3;
 
+    /**
+     * Constructor
+     * @param fileName String
+     * @param world DivingForTreasure
+     */
     public InteractableObject(String fileName, DivingForTreasure world) {
         super(new Sprite(DivingForTreasure.MEDIA_URL.concat(fileName)));
         this.world = world;
@@ -21,30 +30,35 @@ public abstract class InteractableObject extends SpriteObject implements ICollid
     }
 
     //Functions
+
+    /**
+     * Adds object to world at certain location
+     */
     public void spawnObject() {
         world.addGameObject(this, determineXSpawn(), determineYSpawn());
     }
 
+    /**
+     * Deletes object from world
+     */
     public void deleteObject() {
         world.deleteGameObject(this);
     }
 
+    /**
+     * Handles what happens when collision with player is detected
+     */
     public void collisionWithPlayer() {
         respawnObject();
         collisionEvent();
     }
 
+    /**
+     * Respawns object at certain location
+     */
     public void respawnObject() {
         setX(determineXSpawn());
         setY(determineYSpawn());
-    }
-
-    public void incrementSpeed(int increment) {
-        speed += increment;
-    }
-
-    public void resetSpeed() {
-        speed = START_SPEED;
     }
 
     //Abstract Functions

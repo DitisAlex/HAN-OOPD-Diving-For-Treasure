@@ -2,11 +2,20 @@ package project.DivingForTreasure.supportingObject;
 
 import project.DivingForTreasure.DivingForTreasure;
 
+/**
+ * @author Alex Cheng
+ * @author Laurens van Brecht
+ */
 public class Clock {
     private DivingForTreasure world;
     private long clock;
     private long interval;
 
+    /**
+     * Constructor
+     * @param world DivingForTreasure
+     * @param interval long
+     */
     public Clock(DivingForTreasure world, long interval) {
         this.world = world;
         this.clock = System.currentTimeMillis();
@@ -15,6 +24,11 @@ public class Clock {
     }
 
     // Functions
+
+    /**
+     * Checks if clock has passed certain interval
+     * @return boolean
+     */
     public boolean clockPassed() {
         long clockForInterval = System.currentTimeMillis();
         if (clockForInterval - interval > clock) {
@@ -24,6 +38,9 @@ public class Clock {
         return false;
     }
 
+    /**
+     * Resets the clock time
+     */
     private void resetClock() {
         clock = System.currentTimeMillis();
     }

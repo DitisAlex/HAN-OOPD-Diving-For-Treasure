@@ -6,17 +6,29 @@ import project.DivingForTreasure.screen.EndScreen;
 import project.DivingForTreasure.screen.Screen;
 import project.DivingForTreasure.screen.PlayScreen;
 
+/**
+ * @author Alex Cheng
+ * @author Laurens van Brecht
+ */
 public class DivingForTreasure extends GameEngine {
     //Static Variables
     public static String MEDIA_URL = "src/main/java/project/DivingForTreasure/media/images/";
     public static String SOUND_URL = "src/main/java/project/DivingForTreasure/media/sounds/";
     Screen screen = new PlayScreen(this);
 
+    /**
+     * Main Method
+     * @param args Arguments
+     */
     public static void main(String[] args) {
         DivingForTreasure hw = new DivingForTreasure();
         hw.runSketch();
     }
 
+    /**
+     * Setups the game by initializing view properties
+     * and goes to first screen
+     */
     @Override
     public void setupGame() {
         // Initialize View
@@ -38,6 +50,11 @@ public class DivingForTreasure extends GameEngine {
     }
 
     //Functions
+
+    /**
+     * Ends the game by switching to end screen
+     * and deletes all active objects
+     */
     public void goToEndScreen() {
         System.out.println("Going to endscreen");
         screen.deleteScreenObjects();

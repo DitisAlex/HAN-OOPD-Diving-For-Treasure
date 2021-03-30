@@ -4,14 +4,18 @@ import project.DivingForTreasure.interactableObject.treasure.Treasure;
 
 import java.util.ArrayList;
 
+/**
+ * @author Alex Cheng
+ * @author Laurens van Brecht
+ */
 public class TreasureBag {
     private final ArrayList<Treasure> treasures = new ArrayList<>();
-    //Functions
+
+    /**
+     * Adds collected treasures to treasures arrayList
+     * @param t Treasure
+     */
     public void addToTreasureBag(Treasure t) {
         treasures.add(t);
     }
-    //Abstract Functions
-    //Override Functions
-    //Getters and setters
-
 }
